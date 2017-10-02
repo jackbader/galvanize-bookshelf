@@ -18,11 +18,11 @@ switch (app.get('env')) {
     app.use(morgan('dev'));
     break;
 
-  case 'production':
+ case 'production':
     app.use(morgan('short'));
     break;
 
-  default:
+ default:
 }
 
 app.use(bodyParser.json());
@@ -38,7 +38,7 @@ app.use((req, res, next) => {
     return next();
   }
 
-  res.sendStatus(406);
+ res.sendStatus(406);
 });
 
 const books = require('./routes/books');
@@ -64,7 +64,7 @@ app.use((err, _req, res, _next) => {
       .send(err.message);
   }
 
-  // eslint-disable-next-line no-console
+ // eslint-disable-next-line no-console
   console.error(err.stack);
   res.sendStatus(500);
 });
